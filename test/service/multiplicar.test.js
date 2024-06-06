@@ -1,7 +1,11 @@
 const Servico = require("../../src/services/service");
 
 describe('Teste função multiplicar', () => {
-    let servico = new Servico();
+    let servico;
+
+    beforeEach(() => {
+        servico = new Servico();
+    });
 
     it('CT01 - Deve multiplicar 2 * 2', () => {
         const resultado = servico.Multiplicar(2, 2);

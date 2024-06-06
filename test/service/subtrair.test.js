@@ -1,41 +1,44 @@
 const Servico = require("../../src/services/service");
 
-describe('Teste função somar', () => {
-  let servico = new Servico();
+describe('Teste função Subtrair', () => {
+    let servico;
 
-  it('CT01 - Deve somar 2 - 2', () => {
-    const resultado = servico.Somar(2, 2)
-    expect(resultado).toBe(4)
-  })
+    beforeEach(() => {
+        servico = new Servico();
+    });
 
-  it('CT01 - Deve somar a - 2', () => {
-    const resultado = () => servico.Somar('a', 2)
-    expect(resultado).toThrowError('Não dá para somar letras')
-  })
+    it('CT01 - Deve subtrair 2 - 2', () => {
+        const resultado = servico.Subtrair(2, 2);
+        expect(resultado).toBe(0);
+    });
 
-  it('CT01 - Deve somar -2 - 2', () => {
-    const resultado = () => servico.Somar(-2, 2)
-    expect(resultado).toBe(-4)
-  })
+    it('CT02 - Deve lançar erro ao subtrair "a" - 2', () => {
+        const resultado = () => servico.Subtrair('a', 2);
+        expect(resultado).toThrowError('Não dá para subtrair letras');
+    });
 
-  it('CT01 - Deve somar 0 - 5', () => {
-    const resultado = () => servico.Somar(0, 5)
-    expect(resultado).toBe(-5)
-  })
+    it('CT03 - Deve subtrair -2 - 2', () => {
+        const resultado = servico.Subtrair(-2, 2);
+        expect(resultado).toBe(-4);
+    });
 
-  it('CT06 - Deve somar 2000000 - 1000000', () => {
-    const resultado = servico.Somar(2000000, 1000000);
-    expect(resultado).toBe(1000000);
-  });
+    it('CT04 - Deve subtrair 0 - 5', () => {
+        const resultado = servico.Subtrair(0, 5);
+        expect(resultado).toBe(-5);
+    });
 
-  it('CT07 - Deve lançar erro ao somar null - 2', () => {
-    const resultado = () => servico.Somar(null, 2);
-    expect(resultado).toThrowError('Não envia número vazio');
-  });
+    it('CT05 - Deve subtrair 2000000 - 1000000', () => {
+        const resultado = servico.Subtrair(2000000, 1000000);
+        expect(resultado).toBe(1000000);
+    });
 
-  it('CT09 - Deve lançar erro ao somar {} + 2', () => {
-    const resultado = () => servico.Somar({}, 2);
-    expect(resultado).toThrowError('Impossível fazer soma com caracteres');
-  });
+    it('CT06 - Deve lançar erro ao subtrair null - 2', () => {
+        const resultado = () => servico.Subtrair(null, 2);
+        expect(resultado).toThrowError('Não envia número vazio');
+    });
 
-})
+    it('CT07 - Deve lançar erro ao subtrair {} - 2', () => {
+        const resultado = () => servico.Subtrair({}, 2);
+        expect(resultado).toThrowError('Não dá para subtrair letras');
+    });
+});
