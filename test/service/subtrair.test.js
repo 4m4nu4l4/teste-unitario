@@ -34,7 +34,7 @@ describe('Teste função Subtrair', () => {
 
     it('CT06 - Deve lançar erro ao subtrair null - 2', () => {
         const resultado = () => servico.Subtrair(null, 2);
-        expect(resultado).toThrowError('Não envia número vazio');
+        expect(resultado).toEqual('Não é possível fazer a divisão por zero');
     });
 
     it('CT07 - Deve lançar erro ao subtrair {} - 2', () => {

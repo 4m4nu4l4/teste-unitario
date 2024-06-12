@@ -34,12 +34,12 @@ describe('Teste função multiplicar', () => {
 
     it('CT06 - Deve lançar erro ao multiplicar "a" * 2', () => {
         const resultado = () => servico.Multiplicar('a', 2);
-        expect(resultado).toThrowError('Não dá para multiplicar letras');
+        expect(resultado).toThrowError('Não multiplica caracteres');
     });
 
     it('CT07 - Deve lançar erro ao multiplicar null * 2', () => {
         const resultado = () => servico.Multiplicar(null, 2);
-        expect(resultado).toThrowError('Entradas inválidas');
+        expect(resultado).toEqual('Entradas inválidas');
     });
 
     it('CT09 - Deve lançar erro ao multiplicar {} * 2', () => {
