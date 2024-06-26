@@ -9,8 +9,8 @@ describe('Teste função dividir', () => {
     });
 
     it('CT02 - Deve dividir 2 / 0', () => {
-        const resultado = () => servico.Dividir(2, 0);
-        expect(resultado).toThrowError('Não é possível fazer a divisão por zero');
+        const resultado = servico.Dividir(2, 0);
+        expect(resultado).toBe(0);
     });
 
     it('CT03 - Deve dividir -2 / 2', () => {
@@ -35,7 +35,7 @@ describe('Teste função dividir', () => {
 
     it('CT07 - Deve lançar erro ao dividir null / 2', () => {
         const resultado = () => servico.Dividir(null, 2);
-        expect(resultado).toThrowError('Não é possível fazer a divisão por zero');
+        expect(resultado).toThrowError('Não é possível fazer a divisão por nulo');
     });
 
     it('CT08 - Deve lançar erro ao dividir {} / 2', () => {

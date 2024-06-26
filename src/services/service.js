@@ -29,7 +29,7 @@ class ServicoExercicio {
       throw new Error('Não dá para dividir letras');
     }
     if (num2 === null) {
-      throw new Error('Não é possível fazer a divisão por zero');
+      throw new Error('Não é possível fazer a divisão por nulo');
     }
     return num1 / num2;
   }
