@@ -4,6 +4,9 @@ class ServicoExercicio {
     if (isNaN(num1) || isNaN(num2)) {
       throw new Error('Não dá para somar letras');
     }
+    if (num2 === null) {
+      throw new Error('Não é possível fazer a soma por nulo');
+    }
     return num1 + num2;
   }
 
@@ -20,6 +23,9 @@ class ServicoExercicio {
   Multiplicar(num1, num2) {
     if (isNaN(num1) || isNaN(num2)) {
       throw new Error('Não multiplica caracteres');
+    }
+    if (num2 === null) {
+      throw new Error('Não é possível fazer a multiplicação por nulo');
     }
     return num1 * num2;
   }
